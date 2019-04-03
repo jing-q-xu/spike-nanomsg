@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jqxu/code/nanomsg/nanomsg/demo/pubsub_demo.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+netinet/in.h
+-
+unistd.h
+-
+nanomsg/nn.h
+-
+nanomsg/pubsub.h
+-
+
+/usr/local/include/nanomsg/nn.h
+errno.h
+-
+stddef.h
+-
+stdint.h
+-
+
+/usr/local/include/nanomsg/pubsub.h
+

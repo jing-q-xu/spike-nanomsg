@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jqxu/code/nanomsg/spike/bus.c
+assert.h
+-
+libc.h
+-
+stdio.h
+-
+nanomsg/nn.h
+-
+nanomsg/bus.h
+-
+
+/usr/local/include/nanomsg/bus.h
+
+/usr/local/include/nanomsg/nn.h
+errno.h
+-
+stddef.h
+-
+stdint.h
+-
+
