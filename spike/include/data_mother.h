@@ -21,15 +21,15 @@ struct DummyActor : Actor
                 }
             }
             m_count = sequence;
-            if (m_count % 100 == 0)
+            if (m_count % 10 == 0)
             {
                 std::cout << "client send count: " << m_count << std::endl;
             }
-            }
-            else
-            {
-                std::cout << "error, unexpected length received:" << std::endl;
-            }
+        }
+        else
+        {
+            std::cout << "error, unexpected length received:" << std::endl;
+        }
         return 0;
     }
     int m_count;
