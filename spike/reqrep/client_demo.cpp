@@ -12,9 +12,11 @@ int main (const int argc, const char **argv)
         client.send((const char*)(&greeting), sizeof(greeting));
         // usleep(1000);
         greeting.count++;
-        if (greeting.count % 100 == 0)
+        // if (greeting.count % 100 == 0)
         {
             std::cout << "client send count: " << greeting.count << std::endl;
         }
     }
+    sleep(1000);
+    return 0;
 }

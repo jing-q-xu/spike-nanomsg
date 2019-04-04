@@ -76,9 +76,10 @@ int server(const char *url)
         Its important to note that we must not issue two receives in a
         row without replying first, or the following receive(s) will
         cancel any unreplied requests. */
-
+    int count = 0;
+    count++;
     for (;;) {
-        char username[128];
+        // char username[128];
         char greeting[128];
         time_t secs;
         struct tm *now;
@@ -86,12 +87,15 @@ int server(const char *url)
         int rc;
         char *fmt;
 
-        rc = nn_recv (fd, username, sizeof (username), 0);
+        char *username = 0;
+        rc = nn_recv (fd, &username, NN_MSG, 0);
         if (rc < 0) {
             /*  Any error here is unexpected. */
             fprintf (stderr, "nn_recv: %s\n", nn_strerror (nn_errno ()));
             break;
         }
+
+        fprintf (stderr, "received: count: %d\n", count++);
 
         secs = time (NULL);
         now = localtime (&secs);
@@ -126,7 +130,7 @@ int server(const char *url)
 
         /*  snprintf would be safer, but the above check protects us. */
         sprintf (greeting, fmt, daytime, username);
-
+        nn_freemsg(username);
         rc = nn_send (fd, greeting, strlen (greeting), 0);
         if (rc < 0) {
             /*  There are several legitimate reasons this can fail.
@@ -161,21 +165,21 @@ int client (const char *url, const char *username)
         nn_close (fd);
         return (-1);        
     }
+    while(1) {
+        if (nn_send (fd, username, strlen (username), 0) < 0) {
+            fprintf (stderr, "nn_send: %s\n", nn_strerror (nn_errno ()));
+            nn_close (fd);
+            return (-1);
+        }
 
-    if (nn_send (fd, username, strlen (username), 0) < 0) {
-        fprintf (stderr, "nn_send: %s\n", nn_strerror (nn_errno ()));
-        nn_close (fd);
-        return (-1);
+        /*  Here we ask the library to allocate response buffer for us (NN_MSG). */
+        rc = nn_recv (fd, &msg, NN_MSG, 0);
+        if (rc < 0) {
+            fprintf (stderr, "nn_recv: %s\n", nn_strerror (nn_errno ()));
+            nn_close (fd);
+            return (-1);
+        }
     }
-
-    /*  Here we ask the library to allocate response buffer for us (NN_MSG). */
-    rc = nn_recv (fd, &msg, NN_MSG, 0);
-    if (rc < 0) {
-        fprintf (stderr, "nn_recv: %s\n", nn_strerror (nn_errno ()));
-        nn_close (fd);
-        return (-1);
-    }
-
     nn_close (fd);
 
     /*  Response is not ASCIIZ terminated. */

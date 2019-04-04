@@ -23,8 +23,11 @@ int Client::send(const char* buf, int size)
         std::cout << "client: failed to send data, size: " << bytes << std::endl;
         return -1;
     }
-    return 0;
-    // char *ack = nullptr;
-    // bytes = nn_recv(m_socket, &ack, NN_MSG, 0);
-    // return bytes >= 0;
+    char *ack = nullptr;
+    bytes = nn_recv(m_socket, &ack, NN_MSG, 0);
+    if (ack != nullptr)
+    {
+        nn_freemsg(ack);
+    }
+    return bytes >= 0;
 }

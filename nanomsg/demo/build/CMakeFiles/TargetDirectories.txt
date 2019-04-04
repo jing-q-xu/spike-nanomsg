@@ -1,7 +1,0 @@
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/rebuild_cache.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/rpc_demo.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/pubsub_demo.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/pthread_demo.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/device_demo.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/edit_cache.dir
-/Users/jqxu/code/nanomsg/nanomsg/demo/build/CMakeFiles/async_demo.dir

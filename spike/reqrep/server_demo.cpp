@@ -16,6 +16,5 @@ int main (const int argc, const char **argv)
     while(1)
     {
         server.receive(dummy);
-        // server.send((const char*)(&greeting), sizeof(greeting));
     }
 }
