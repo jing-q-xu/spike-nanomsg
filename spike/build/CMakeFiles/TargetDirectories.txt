@@ -1,5 +1,0 @@
-/Users/jqxu/code/nanomsg/spike/build/CMakeFiles/rebuild_cache.dir
-/Users/jqxu/code/nanomsg/spike/build/CMakeFiles/edit_cache.dir
-/Users/jqxu/code/nanomsg/spike/build/CMakeFiles/client.dir
-/Users/jqxu/code/nanomsg/spike/build/CMakeFiles/broker.dir
-/Users/jqxu/code/nanomsg/spike/build/CMakeFiles/bus.dir

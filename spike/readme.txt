@@ -23,3 +23,8 @@ kill $broker $node1 $node2
 ./bus node1 ipc:///tmp/node1.ipc ipc:///tmp/node2.ipc & node1=$!
 ./bus node2 ipc:///tmp/node2.ipc ipc:///tmp/node1.ipc & node2=$!
 kill $node1 $node2 
+
+
+./reqrep node0 tcp://127.0.0.1:8090 & node0=$!
+./reqrep node1 tcp://127.0.0.1:8090 & node1=$!
+kill $node1 $node2 
