@@ -12,6 +12,7 @@ project(demo)
 
 # Call this from your own project's makefile.
 find_package(nanomsg CONFIG REQUIRED)
+include_directories(../include/)
 
 add_executable(client client.cpp client_demo.cpp)
 target_link_libraries(client nanomsg)
