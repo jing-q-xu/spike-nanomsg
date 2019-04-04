@@ -17,7 +17,7 @@ int Server::receive(Actor &actor)
 {
     char *buf = NULL;
     int bytes = nn_recv (m_socket, &buf, NN_MSG, 0);
-    nn_send(m_socket, ACK, strlen(ACK) + 1, 0);
+    // nn_send(m_socket, ACK, strlen(ACK) + 1, 0);
     actor.msg_received(buf, bytes);
     nn_freemsg(buf);
     return 0;

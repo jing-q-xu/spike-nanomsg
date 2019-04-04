@@ -1,5 +1,6 @@
-#include "client.h"
 #include <iostream>
+#include <unistd.h>
+#include "client.h"
 #include "msg.h"
 int main (const int argc, const char **argv)
 {
@@ -9,8 +10,9 @@ int main (const int argc, const char **argv)
     while(1)
     {
         client.send((const char*)(&greeting), sizeof(greeting));
+        // usleep(1000);
         greeting.count++;
-        // if (greeting.count % 100 == 0)
+        if (greeting.count % 100 == 0)
         {
             std::cout << "client send count: " << greeting.count << std::endl;
         }

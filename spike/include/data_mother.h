@@ -21,9 +21,9 @@ struct DummyActor : Actor
                 }
             }
             m_count = sequence;
-            if (m_count % 10 == 0)
+            if (m_count % 100 == 0)
             {
-                std::cout << "client send count: " << m_count << std::endl;
+                std::cout << "msg_received count: " << m_count << std::endl;
             }
         }
         else
