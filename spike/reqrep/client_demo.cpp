@@ -17,6 +17,5 @@ int main (const int argc, const char **argv)
             std::cout << "client send count: " << greeting.count << std::endl;
         }
     }
-    sleep(1000);
     return 0;
 }

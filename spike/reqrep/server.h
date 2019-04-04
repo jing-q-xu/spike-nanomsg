@@ -7,6 +7,7 @@ struct  Server
 {
     explicit Server(const char* address);
     int receive(Actor &actor);
+    ~Server();
 private:
     std::string m_address;
     int m_socket;

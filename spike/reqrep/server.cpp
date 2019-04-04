@@ -22,3 +22,9 @@ int Server::receive(Actor &actor)
     nn_freemsg(buf);
     return 0;
 }
+
+Server::~Server()
+{
+    nn_shutdown(m_socket, 0);
+}
+
