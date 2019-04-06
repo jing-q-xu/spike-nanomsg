@@ -1,6 +1,7 @@
 #ifndef __DATA_MOTHER_H__
 #define __DATA_MOTHER_H__
 #include "actor.h"
+#include "msg.h"
 struct DummyActor : Actor
 {
     DummyActor() : m_count(0)
