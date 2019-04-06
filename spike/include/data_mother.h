@@ -21,7 +21,7 @@ struct DummyActor : Actor
                 }
             }
             m_count = sequence;
-            if (m_count % 100 == 0)
+            if (m_count % 1000 == 0)
             {
                 std::cout << "msg_received count: " << m_count << std::endl;
             }
