@@ -37,7 +37,7 @@ int node(const int argc, const char **argv)
             nn_freemsg(buf);
         }
     }
-    return nn_shutdown(bind_sock, 0);
+    nn_shutdown(bind_sock, 0);
     return nn_shutdown(connect_sock, 0);
 }
 
