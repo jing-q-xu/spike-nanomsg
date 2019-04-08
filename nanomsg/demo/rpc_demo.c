@@ -179,22 +179,20 @@ int client (const char *url, const char *username)
             nn_close (fd);
             return (-1);
         }
+        /*  Response is not ASCIIZ terminated. */
+        greeting = malloc (rc + 1);
+        if (greeting == NULL) {
+            fprintf (stderr, "malloc: %s\n", strerror (errno));
+            return (-1);
+        }
+        memcpy(greeting, msg, rc);
+        greeting[rc] = '\0';
+
+        nn_freemsg (msg);
+        printf ("%s\n", greeting); 
+        free(greeting);
     }
     nn_close (fd);
-
-    /*  Response is not ASCIIZ terminated. */
-    greeting = malloc (rc + 1);
-    if (greeting == NULL) {
-        fprintf (stderr, "malloc: %s\n", strerror (errno));
-        return (-1);
-    }
-    memcpy(greeting, msg, rc);
-    greeting[rc] = '\0';
-
-    nn_freemsg (msg);
-    printf ("%s\n", greeting); 
-    free(greeting);
-
     return (0);
 }
 

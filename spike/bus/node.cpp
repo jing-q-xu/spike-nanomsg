@@ -55,6 +55,7 @@ int Node::receive(Actor &actor)
         // std::cout << "msg received" << std::endl;
         ret = actor.msg_received(buf, len);
         nn_freemsg(buf);
+        return ret;
     }
-    return ret;
+    return 0;
 }

@@ -91,7 +91,7 @@ int server(const char *url)
             fprintf (stderr, "nn_recv: %s\n", nn_strerror (nn_errno ()));
             break;
         }
-
+        fprintf (stderr, "nn_recv: %s\n", username);
         secs = time (NULL);
         now = localtime (&secs);
         if (now->tm_hour < 12) {
